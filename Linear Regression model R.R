@@ -10,7 +10,7 @@ pairs(happ2017[c("Happiness.Score","Economy..GDP.per.Capita.","Family","Health..
 full<-lm(Happiness.Score ~ Economy..GDP.per.Capita. + Family + Health..Life.Expectancy. + Freedom + Generosity + Trust..Government.Corruption., data=happ2017)
 reduced<-lm(Happiness.Score ~ Economy..GDP.per.Capita. + Family + Health..Life.Expectancy. + Freedom, data=happ2017)
 anova(reduced,full)
-#P-value is greater than .05 and thus I cannot reject the null hypothesis. Therefore I get rid of the generosity and trust..government.corruption variables in the model
+#P-value is less than .05 and thus I reject the null hypothesis. Therefore I get rid of the generosity and trust..government.corruption variables in the model
 summary(reduced)
 #R^2 value increases as compared to original happ2017_model as expected. Still need to fix high interaction between GDP and life expectancy, decide to refine model even more. I noticed throughout the process that Health..Life.Expectancy is skewed and box-plot variable to determeine if there are outliers in the data
 boxplot(happ2017$Health..Life.Expectancy., horizontal=TRUE)
